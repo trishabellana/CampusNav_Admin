@@ -1,0 +1,132 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+  font-family: "Poppins", sans-serif;
+}
+
+.login {
+  display: flex;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.left-side-login {
+  background: #1a0d73;
+  width: 100%;
+  max-width: 600px;
+  height: 100vh;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.login-logo h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.school h1 {
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+.school p {
+  font-size: 1.2rem;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.school h1 span {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2dc219;
+}
+
+.right-side-login {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.login-right {
+  width: 100%;
+  max-width: 500px;
+  padding: 40px;
+  border-radius: 10px;
+}
+
+.login-right h2 {
+  margin-bottom: 40px;
+  font-size: 1.8rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group label {
+  font-size: 15px;
+  display: block;
+  font-weight: 400;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #d9d2d2;
+  border-radius: 5px;
+}
+
+.login-button {
+  padding: 10px;
+  background-color: #389cfc;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login-button:hover {
+  background-color: #207ce4;
+}
+
+.login-links {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+  gap: 50%;
+}
+
+.login-links a {
+  color: #1a0d73;
+  font-size: 14px;
+}
+
+.login-links a:hover {
+  text-decoration: none; /* Adds an underline when hovered */
+}
+
+.forgot-password-link {
+  color: #007bff;
+}
+
+.signup-link {
+  color: #28a745;
+}
