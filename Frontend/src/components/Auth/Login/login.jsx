@@ -1,14 +1,8 @@
+import { useState } from "react";
 import "./login.css";
-import { Link } from "react-router-dom"; //pag link ng different components
+import { Link } from "react-router-dom";
 
 function Login() {
-  
-  const navigate = useNavigate();
-
-  const handleLogin=() => {
-    navigate("/home")
-  }
-
   return (
     <>
       <div className="login">
@@ -16,7 +10,7 @@ function Login() {
           <div className="login-logo">Logo</div>
           <div className="school">
             <h1>
-              Welcome to <span>CampusNav</span>
+              Welcome to <span>BraveRoute</span>
             </h1>
             <p>Your guide through campus life</p>
           </div>
@@ -24,17 +18,25 @@ function Login() {
         <div className="right-side-login">
           <div className="login-right">
             <h2>LOGIN</h2>
-            <form className="login-form">
+            <form onSubmit={handleSubmit} className="login-form">
               <div className="input-group">
                 <label>Email</label>
-                <input type="email" placeholder="Email Address" />
+                <input
+                  onChange={(e) => setEmail(e.target.value)}
+                  type="email"
+                  placeholder="Email Address"
+                />
               </div>
               <div id="emailHelp" className="form-text text-muted">
                 Please enter your email address.
               </div>
               <div className="input-group">
                 <label className="mt-3">Password</label>
-                <input type="password" placeholder="Password" />
+                <input
+                  onChange={(e) => setPassword(e.target.value)}
+                  type="password"
+                  placeholder="Password"
+                />
               </div>
               <div id="emailHelp" className="form-text text-muted">
                 Please enter your password.
