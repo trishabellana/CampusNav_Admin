@@ -1,6 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap CSS
 import "./signup.css"; // Import your custom CSS
+import { useState } from "react";
+import axios from "axios";
 
 function Signup() {
   const navigate = useNavigate();
@@ -13,6 +15,21 @@ function Signup() {
     navigate("/");
   };
 
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+  const [username, setUsername] = useState();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios
+      .post(
+        "mongodb+srv://admin:admin@campusnav.4gjla.mongodb.net/admin_accounts/signup",
+        { email, username, password }
+      )
+      .then((result) => console.log(result))
+      .catch((err) => console.log(err));
+  };
+
   return (
     <>
       <div className="login">
@@ -20,7 +37,7 @@ function Signup() {
           <div className="login-logo">Logo</div>
           <div className="school">
             <h1>
-              Welcome to <span>CampusNav</span>
+              Welcome to <span>BraveRoute</span>
             </h1>
             <p>Your guide through campus life</p>
           </div>
@@ -28,7 +45,7 @@ function Signup() {
         <div className="right-side-login">
           <div className="login-right">
             <h2>SIGN UP</h2>
-            <form className="login-form">
+            <form className="login-form" onSubmit={handleSubmit}>
               <div>
                 <label htmlFor="email" className="form-label">
                   Email
@@ -38,20 +55,50 @@ function Signup() {
                   id="email"
                   className="form-control"
                   placeholder="Email Address"
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
               <div id="emailHelp" className="form-text text-muted">
                 Please enter your FAITH Account.
               </div>
+              <div>
+                <label htmlFor="username" className="form-label mt-3">
+                  Username
+                </label>
+                <input
+                  type="username"
+                  id="username"
+                  className="form-control"
+                  placeholder="Username"
+                  onChange={(e) => setUsername(e.target.value)}
+                />
+              </div>
+              <div id="usernameHelp" className="form-text text-muted">
+                Please enter your Username.
+              </div>
+              <div>
+                <label htmlFor="password" className="form-label mt-3">
+                  Password
+                </label>
+                <input
+                  type="password"
+                  id="password"
+                  className="form-control"
+                  placeholder="Password"
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </div>
+              <div id="passwordHelp" className="form-text text-muted">
+                Please enter your Password.
+              </div>
             </form>
 
             <div className="signup-links d-flex justify-content-between mt-3">
-              {/* Add Flexbox classes */}
               <button
                 onClick={handleRequestAccess}
-                className="btn btn-primary me-2" // Bootstrap primary button with margin-end
+                className="btn btn-primary me-2"
               >
-                Request Access Code
+                Signup
               </button>
               <button onClick={handleGoBack} className="btn btn-primary me-2">
                 Go Back
