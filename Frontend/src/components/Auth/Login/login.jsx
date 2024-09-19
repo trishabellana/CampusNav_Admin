@@ -1,7 +1,14 @@
 import "./login.css";
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"; //pag link ng different components
 
 function Login() {
+  
+  const navigate = useNavigate();
+
+  const handleLogin=() => {
+    navigate("/home")
+  }
+
   return (
     <>
       <div className="login">
